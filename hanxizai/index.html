@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta  charset="utf-8" http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+<link rel="icon" type="image/x-icon" href="./resource/img/title.jpg" />
+<title>韩熙载夜宴图
+</title>
+
+<link type="text/css" href="./css/style.css" rel="stylesheet">
+<script src="./js/jquery-1.10.2.min.js" type="application/javascript"></script>
+<script src="./js/jquery.mousewheel.js" type="application/javascript"></script>
+<script src="./js/point.js" type="application/javascript"></script>
+<script src="./js/content.js" type="application/javascript"></script>
+<script src="./js/hxz.js" type="application/javascript"></script>
+
+<!--[if IE 9]>
+<style>#imgcontrol{
+	position:absolute;
+	width:100%;
+	height:50%;
+	top:40%;
+}
+
+</style>
+<![endif]-->
+<!--[if IE 8]>
+<style>#imgcontrol{
+	position:absolute;
+	width:100%;
+	height:50%;
+	top:40%;
+}
+
+</style>
+<![endif]-->
+<!--[if IE 7]>
+<style>#imgcontrol{
+	position:absolute;
+	width:100%;
+	height:50%;
+	top:40%;
+}
+
+</style>
+<![endif]-->
+
+</head>
+
+<body onLoad="init()" onselectstart="return false">
+<div id="videoback"></div>
+<div id="videoshow">
+	<div id="closediv" style="display: block;"><img src="./resource/img/close.png" onclick="closevideo()"></div>
+	<div id="videofile">
+		
+	</div>
+</div>
+<img id="logo" title="返回首页" src="./resource/img/logo.png" />
+<img id="hxzlogo" src="./resource/img/yeyantu.png"/>
+<img id="topbar" src="./resource/img/topbar.png" />
+<div id="bottombar">
+<p id="b_tuowei" class="bottomwords">拖尾</p>
+<p id="b_hougeshui" class="bottomwords">后隔水</p>
+<p id="b_yelanyuxing" class="bottomwords">夜阑余兴</p>
+<p id="b_yurenqingchui" class="bottomwords">玉人轻吹</p>
+<p id="b_huapingxiaoqi" class="bottomwords">画屏小憩</p>
+<p id="b_jigubanwu" class="bottomwords">击鼓伴舞</p>
+<p id="b_yanbalingting" class="bottomwords">宴罢聆听</p>
+<p id="b_qiangeshui" class="bottomwords">前隔水</p>
+<p id="b_yinshou" class="bottomwords">引首</p>
+
+</div>
+
+<div id="backcolor" ></div>
+
+<div id="showcontroller">
+<img id="menu" src="./resource/img/hxz/menu.png" />
+
+<div id="right_buttons">
+<img id="button2" class="button" title="静音" src="./resource/img/hxz/button/button2.png" onMouseOut="initbutton2()" onMouseOver="changebutton2()" onClick="changeaudionstatus()"/>
+<img id="button3" class="button" title="层数切换" src="./resource/img/hxz/button/button3.png" onMouseOut="initbutton('button3')" onMouseOver="changebutton('button3')"/>
+<img id="button4" class="button" title="全屏模式" src="./resource/img/hxz/button/button4.png" onMouseOut="initbutton('button4')" onMouseOver="changebutton('button4')" onClick="changetofullscreen()"/>
+
+<img id="button5" class="button" title="分享" src="./resource/img/hxz/button/button5.png" onMouseOut="initbutton('button5')" onMouseOver="changebutton('button5')" onClick=""/>
+
+<img id="button6" class="button" title="帮助" src="./resource/img/hxz/button/button6.png" onMouseOut="initbutton('button6')" onMouseOver="changebutton('button6')" onClick="showhelp()"/>
+</div>
+<div id="hlc" class="hlc">
+	<img  id="hlcpic" class="zoomcontrol" src="./resource/img/zoom.png">
+	<span class="moveSpan"></span>
+	<span class="zoomOut"></span>
+	<span class="zoomIn"></span>
+</div>
+
+<div id="share">
+
+	<div id="bdshare" class="bdsharebuttonbox bdshare" data-tag="share_1">
+			<a class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a>
+			<a class="bds_qzone" data-cmd="qzone" href="#" title="分享到QQ空间"></a>
+			<a class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+			<a class="bds_baidu" data-cmd="baidu"></a>
+			<a class="bds_renren" data-cmd="renren" title="分享到人人网"></a>
+			<a class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a>
+	</div>
+</div>
+
+<div id="closefullscreen">
+<p onClick="closefullscreen()">退出全屏</p>
+</div>
+
+<div id="level2infodecriptionpic">
+	
+</div>
+
+<div id="up_tag">
+<img id="tuowei" src="./resource/img/hxz/up_tag/tuowei.png" onClick="changeinfopoint(2404,0)">
+<img id="hougeshui" src="./resource/img/hxz/up_tag/hougeshui.png" onClick="changeinfopoint(3072,0)"/>
+<img id="yelanyuxing" src="./resource/img/hxz/up_tag/yelanyuxing.png" onClick="changeinfopoint(3840,0)"/>
+<img id="yurenqingchui" src="./resource/img/hxz/up_tag/yurenqingchui.png" onClick="changeinfopoint(5120,0)"/>
+<img id="huapingxiaoqi" src="./resource/img/hxz/up_tag/huapingxiaoqi.png" onClick="changeinfopoint(6144,0)"/>
+<img id="jigubanwu" src="./resource/img/hxz/up_tag/jigubanwu.png" onClick="changeinfopoint(7424,0)"/>
+<img id="yanbalingyin" src="./resource/img/hxz/up_tag/yanbalingyin.png" onClick="changeinfopoint(8192,0)"/>
+<img id="qiangeshui" src="./resource/img/hxz/up_tag/qiangeshui.png" onClick="changeinfopoint(9472,0)"/>
+<img id="yinshou" src="./resource/img/hxz/up_tag/yinshou.png" onClick="changeinfopoint(10240,0)"/>
+</div>
+
+<div id="down_tag">
+<img id="down1" src="./resource/img/hxz/down_tag/down1.png" onClick="playvideo('huaxiangheyi')"/>
+<img id="down2" src="./resource/img/hxz/down_tag/down2.png" onClick="playvideo('jieju')"/>
+<img id="down3" src="./resource/img/hxz/down_tag/down3.png" onClick="playvideo('yuejiqingchui')"/>
+<img id="down4" src="./resource/img/hxz/down_tag/down4.png" onClick="playvideo('liuchuan')"/>
+<img id="down5" src="./resource/img/hxz/down_tag/down5.png" onClick="playvideo('diancha')"/>
+<img id="down6" src="./resource/img/hxz/down_tag/down6.png" onClick="playvideo('duandai')"/>
+<img id="down7" src="./resource/img/hxz/down_tag/down7.png" onClick="playvideo('liuyao')"/>
+<img id="down8" src="./resource/img/hxz/down_tag/down8.png" onClick="playvideo('huafa')"/>
+<img id="down9" src="./resource/img/hxz/down_tag/down9.png" onClick="playvideo('liji')"/>
+<img id="down10" src="./resource/img/hxz/down_tag/down10.png" onClick="playvideo('zhurengong')"/>
+<img id="down11" src="./resource/img/hxz/down_tag/down11.png" onClick="playvideo('beijing')"/>
+</div>
+
+<div id="imgcontrol">
+<img id="hxz" src="./resource/img/hxz/hxz_bkg.png"  draggable="false" />
+<div id="shadow"></div>
+</div>
+
+<div id="level2info">
+<img id="1-1" class="hiddeninfo" src="./resource/img/hxz/level2/line1-1.png" draggable="false" />
+<img id="1-2" class="hiddeninfo" src="./resource/img/hxz/level2/line1-2.png" draggable="false" />
+
+<img id="2-1" class="hiddeninfo" src="./resource/img/hxz/level2/line2-1.png" draggable="false" />
+<img id="2-2" class="hiddeninfo" src="./resource/img/hxz/level2/line2-2.png" draggable="false" />
+<img id="2-3" class="hiddeninfo" src="./resource/img/hxz/level2/line2-3.png" draggable="false" />
+
+<img id="3-1" class="hiddeninfo" src="./resource/img/hxz/level2/line3-1.png" draggable="false" />
+<img id="3-2" class="hiddeninfo" src="./resource/img/hxz/level2/line3-2.png" draggable="false" />
+
+<img id="4-1" class="hiddeninfo" src="./resource/img/hxz/level2/line4-1.png" draggable="false" />
+<img id="4-2" class="hiddeninfo" src="./resource/img/hxz/level2/line4-2.png" draggable="false" />
+<img id="4-3" class="hiddeninfo" src="./resource/img/hxz/level2/line4-3.png" draggable="false" />
+
+<img id="5-2" class="hiddeninfo" src="./resource/img/hxz/level2/line5-2.png" draggable="false" />
+<img id="5-3" class="hiddeninfo" src="./resource/img/hxz/level2/line5-3.png" draggable="false" />
+</div>
+<div id="level2control">
+<img id="num5" class="num" src="./resource/img/hxz/level2/5.jpg" draggable="false" />
+<img id="num4" class="num" src="./resource/img/hxz/level2/4.jpg" draggable="false" />
+<img id="num3" class="num" src="./resource/img/hxz/level2/3.jpg" draggable="false" />
+<img id="num2" class="num" src="./resource/img/hxz/level2/2.jpg" draggable="false" />
+<img id="num1" class="num" src="./resource/img/hxz/level2/1.jpg" draggable="false" />
+</div>
+
+<div id="down_buttons">
+
+
+</div>
+
+<div id="down_info_buttons">
+<img id="infopoint1" class="lv2infopoint" src="./resource/img/hxz/button/icons/infopoint1.png" draggable="false" />
+<img id="infopoint2" class="lv2infopoint" src="./resource/img/hxz/button/icons/infopoint2.png" draggable="false" />
+<img id="infopoint3" class="lv2infopoint" src="./resource/img/hxz/button/icons/infopoint3.png" draggable="false" />
+</div>
+
+
+<div>
+	<audio id='readinfo'></audio>
+</div>
+
+<!--<div id="videodiv" style="">
+    <img id="videobkg"  src="./resource/img/background.png"/>
+	<div id="videoin">
+    	<div id="closediv" style="display: block;"><img src="./resource/img/close.png" onclick="closevideo()"></div>
+		<video id="videoplayer" controls>
+			
+		</video>
+	</div>
+</div>
+-->
+
+
+</div>
+<div id="canvas" onmouseout="unbindcanvas()">
+	<!--<div id="leftmaincontent">-->
+		<div id="leftshow" onmouseover="unbindleftcontent()" onmouseout="bindleftcontent()">
+			
+			<img id="leftshowctrl" src="./resource/img/leftshowctrl.png"/>
+			<div id="leftcontent">
+				
+			</div>
+			<div id="rightcontent"></div>
+		</div>
+	<!--</div>-->
+
+	<!--<div id="rightmaincontent">-->
+		<div id="rightshow" onmouseover="unbindleftcontent()" onmouseout="bindleftcontent()">
+			<img id="rightshowctrl" src="./resource/img/rightshowctrl.png"/>
+			<div id="rightshowcontent"></div>
+		</div>
+	<!--</div>-->
+	<canvas id="hxzcanvas">您的浏览器不支持，建议更新您的浏览器。</canvas>
+	
+
+</div>
+<audio id="indexaudio" src="./resource/sound/background.mp3" loop="loop" ></audio>
+
+<div id="infopoint"></div>
+
+<div id="hxznavctrl" onmouseover="initmovebar()" onmouseout="unbind()">
+	<img id="hxznav" src="./resource/img/hxznav.jpg"/>
+	<img id="movebar" src="./resource/img/movespan.png">
+	<!--<div id="movebar">
+		<img id="movespanup" src="./resource/img/movespanup.png">
+		<img id="movespandown" src="./resource/img/movespandown.png">
+	</div>-->
+</div>
+
+
+
+
+<div id="guide">
+	<img id="closeguide" onClick="closeguidepic()" src="./resource/img/close.png"/>
+	<img id="guidepic" src="./resource/img/guide.png" />
+</div>
+
+<script type="text/javascript">
+	window._bd_share_config = {
+		common : {
+			bdText : ' 诚意推荐“故宫名画记——韩熙载夜宴图”，这是一个很不错的中国古代绘画在线展示平台哦！超高清影像配合专业讲解，还有相关文献浏览，随便看看还是学术研究，都会有收获呢，去了解一下吧！',	
+			bdDesc : '故宫名画记《韩熙载夜宴图》',	
+			bdUrl :'', 
+			bdpic:'http://minghuajia.dpm.org.cn/resource/img/share.jpg'	
+		},
+		share : [{
+			"bdSize" : 16
+		}]
+	}
+	with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+
+</script>
+</body>
+</html>
